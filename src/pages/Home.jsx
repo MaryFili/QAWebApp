@@ -4,7 +4,8 @@ import "../styles/Home.scss";
 import Form from '../components/Form';
 import Answer from '../components/Answer';
 import Heading from '../components/Heading';
-
+import Loader from '../components/Loader';
+import { BiErrorAlt } from 'react-icons/bi'
 
 
 const apiKey = import.meta.env.VITE_API_KEY
@@ -16,15 +17,15 @@ export default function Home() {
   const [passage, setPassage] = useState("");
   const [answer, setAnswer] = useState("");
   const [isError, setIsError] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [passageError, setPassageError] = useState(false);
-  const [questionError, setQuestionError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [textError, setTextError] = useState(false);
+
 
 
 
   const getAnswer = async (event) => {
     event.preventDefault();
-    setLoading(true);
+    setIsLoading(true);
 
     const response = await fetch(
       "https://api-inference.huggingface.co/models/bert-large-uncased-whole-word-masking-finetuned-squad",
@@ -40,21 +41,18 @@ export default function Home() {
     console.log(result.answer);
     setAnswer(result.answer);
     setIsError(false);
-    setLoading(false);
+    setTextError(false);
+    setIsLoading(false);
 
-    if (question === "") {
-      setQuestionError(true);
+    if (question === "" || passage === "") {
+      setTextError(true);
       return;
     }
-    if (passage === "") {
-      setPassageError(true);
-      return
-    }
+
     if (!result.answer) {
       setIsError(true);
       return
     }
-
   };
 
   return (
@@ -65,12 +63,21 @@ export default function Home() {
 
         <Form question={question} passage={passage} setQuestion={setQuestion} setPassage={setPassage} getAnswer={getAnswer} />
 
-
+        {isLoading && <Loader />}
         {answer && (
           <Answer answer={answer} />
         )}
 
-        {isError && <p>Sorry, something went wrong. Please try again later</p>}
+        {isError && (
+          <div>
+            <BiErrorAlt className='error-icon' />
+            <p className='error'>Sorry, something went wrong. Please try again later</p>
+          </div>)}
+        {textError && (
+          <div>
+            <BiErrorAlt className='error-icon' />
+            <p className='error'>Please enter a text and a question</p>
+          </div>)}
       </div>
 
     </>
