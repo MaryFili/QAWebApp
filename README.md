@@ -3,12 +3,12 @@ This application is designed to provide answers based on a given context. Occasi
 
 -------------------------------------------
 
-## how the app work 
-I used react to build the ui with pretrained hugging face model to do inference  
+## Technology
+I used react to build the ui and pretrained hugging face model to do inference  
 
 -------------------------------------------------------
 
-## how you can run the app 
+## How to run the app 
 - clone the repo 
 ```bash 
 git clone repo 
