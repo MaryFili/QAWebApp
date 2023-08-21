@@ -6,6 +6,7 @@ import Answer from '../components/Answer';
 import Heading from '../components/Heading';
 import Loader from '../components/Loader';
 import { BiErrorAlt } from 'react-icons/bi'
+import Errors from '../components/Errors';
 
 
 const apiKey = import.meta.env.VITE_API_KEY
@@ -67,17 +68,8 @@ export default function Home() {
         {answer && (
           <Answer answer={answer} />
         )}
+        <Errors isError={isError} textError={textError} />
 
-        {isError && (
-          <div>
-            <BiErrorAlt className='error-icon' />
-            <p className='error'>Sorry, something went wrong. Please try again later</p>
-          </div>)}
-        {textError && (
-          <div>
-            <BiErrorAlt className='error-icon' />
-            <p className='error'>Please enter a text and a question</p>
-          </div>)}
       </div>
 
     </>
