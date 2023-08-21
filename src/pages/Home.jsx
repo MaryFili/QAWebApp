@@ -65,9 +65,11 @@ export default function Home() {
         <Form question={question} passage={passage} setQuestion={setQuestion} setPassage={setPassage} getAnswer={getAnswer} />
 
         {isLoading && <Loader />}
+
         {answer && (
           <Answer answer={answer} />
         )}
+
         <Errors isError={isError} textError={textError} />
 
       </div>

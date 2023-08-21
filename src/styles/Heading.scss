@@ -1,6 +1,6 @@
 .heading-container {
     width: 60%;
-    margin-top: 2em;
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +16,6 @@
 
     .sub-heading {
         font-size: 1.3rem;
-        gap: .2em;
 
         span {
 
@@ -30,11 +29,11 @@
 
     .heading-container {
         .main-heading {
-            font-size: 4rem;
+            font-size: 3.5rem;
         }
 
         .sub-heading {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             gap: .5em;
 
         }
