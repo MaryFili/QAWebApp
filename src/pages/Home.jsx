@@ -10,6 +10,7 @@ import Errors from '../components/Errors';
 
 
 const apiKey = import.meta.env.VITE_API_KEY
+const url = import.meta.env.VITE_URL
 
 export default function Home() {
 
@@ -29,7 +30,7 @@ export default function Home() {
     setIsLoading(true);
 
     const response = await fetch(
-      "https://api-inference.huggingface.co/models/bert-large-uncased-whole-word-masking-finetuned-squad",
+      url,
       {
         headers: { Authorization: `Bearer ${apiKey}` },
         method: "POST",
