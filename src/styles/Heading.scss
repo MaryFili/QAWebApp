@@ -1,0 +1,43 @@
+.heading-container {
+    width: 60%;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    .main-heading {
+        color: #1b2430;
+        text-align: center;
+        font-size: 2.5rem;
+        line-height: 1.2em;
+    }
+
+    .sub-heading {
+        font-size: 1.3rem;
+        gap: .2em;
+
+        span {
+
+            display: block;
+        }
+    }
+}
+
+
+@media screen and (min-width:768px) {
+
+    .heading-container {
+        .main-heading {
+            font-size: 4rem;
+        }
+
+        .sub-heading {
+            font-size: 1.6rem;
+            gap: .5em;
+
+        }
+    }
+
+}

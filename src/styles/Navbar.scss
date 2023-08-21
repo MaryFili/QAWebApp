@@ -1,21 +1,23 @@
-.navbar{
+.navbar {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #1b2430;
-    padding: 20px 30px;
+    padding: 15px 30px;
     position: sticky;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 
-    .logo{
+    .logo {
         margin-right: auto;
-    }   
-
-    .link-list{
-        display:none
+        position: relative;
+        bottom: 15px
     }
 
-    .link-list.active{
+    .link-list {
+        display: none
+    }
+
+    .link-list.active {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -26,23 +28,24 @@
         top: 95px;
         right: 0px;
         width: 300px;
-        height:100vh;
-        box-shadow: 0 40px 60px rgba(0, 0 ,0, 0.1);
+        height: 100vh;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
         padding: 40px 0 0 10px;
 
-        .link{
+        .link {
             list-style: none;
             padding: 0 20px;
         }
-        .link a{
+
+        .link a {
             text-decoration: none;
             font-size: 1.2em;
             font-weight: 600;
             color: #fff;
-            transition: color 0.3s ease-in-out; 
+            transition: color 0.3s ease-in-out;
         }
 
-        .link a:hover{
+        .link a:hover {
             color: #A992DB;
         }
 
@@ -50,8 +53,8 @@
 
     .open-menu,
     .close-menu {
-        color:#A992DB;
-        font-size:2em;
+        color: #A992DB;
+        font-size: 2em;
         cursor: pointer
     }
 
@@ -62,48 +65,49 @@
 
 
 
-@media screen and (min-width:768px){
+@media screen and (min-width:768px) {
 
-    .navbar{
+    .navbar {
         width: 100vw;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: #1b2430;
-        padding: 20px 30px;
+        padding: 10px 30px;
         position: sticky;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 
 
-        .logo{
+        .logo {
             margin-right: auto;
-            }
-            
-        .link-list{
-            display: flex;;
+        }
+
+        .link-list {
+            display: flex;
+            ;
             flex-direction: row;
             gap: 3em;
 
-          
-            .link{
+
+            .link {
                 list-style: none;
                 padding: 0 20px;
             }
 
-            .link a{
+            .link a {
                 text-decoration: none;
                 font-size: 1.2em;
                 font-weight: 600;
                 color: #fff;
-                transition: color 0.3s ease-in-out;    
+                transition: color 0.3s ease-in-out;
             }
-    
-            .link a:hover{
+
+            .link a:hover {
                 color: #A992DB;
             }
         }
 
-        .mobile{
+        .mobile {
             display: none;
         }
     }

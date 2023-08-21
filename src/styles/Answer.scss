@@ -1,0 +1,43 @@
+.answer-container {
+    width: 60%;
+    margin-top: 1em;
+    margin-bottom: 2em;
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .answer {
+        padding: .5em;
+        border-radius: 8px;
+        background-color: #f0edf5;
+        box-shadow: rgba(80, 63, 205, 0.5) 0 1px 10px;
+
+
+        p {
+            text-align: start;
+            font-size: 1rem;
+        }
+    }
+
+}
+
+
+@media screen and (min-width:768px) {
+    .answer-container {
+        width: 35%;
+
+        h2 {
+            font-size: 1.6rem;
+        }
+
+        .answer {
+            padding: 1em;
+
+            p {
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+}
