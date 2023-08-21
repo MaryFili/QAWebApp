@@ -1,11 +1,14 @@
-import "../styles/Form.scss"
-import Button from "./Button"
+import "../styles/Form.scss";
+import Button from "./Button";
+import { motion } from "framer-motion";
 
 export default function Form({ passage, setPassage, question, setQuestion, getAnswer }) {
     return (
-        <form className='form'>
-
-
+        <motion.form
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className='form'>
             <textarea
                 value={passage}
                 onChange={(e) => setPassage(e.target.value)}
@@ -16,7 +19,6 @@ export default function Form({ passage, setPassage, question, setQuestion, getAn
                 rows="8"
                 required="true"
             />
-
             <textarea
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
@@ -27,6 +29,6 @@ export default function Form({ passage, setPassage, question, setQuestion, getAn
             />
             <Button getAnswer={getAnswer} />
 
-        </form>
+        </motion.form>
     )
 }

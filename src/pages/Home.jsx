@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import Navbar from '../components/Navbar';
 import "../styles/Home.scss";
+import Navbar from '../components/Navbar';
 import Form from '../components/Form';
 import Answer from '../components/Answer';
 import Heading from '../components/Heading';
 import Loader from '../components/Loader';
-import { BiErrorAlt } from 'react-icons/bi'
 import Errors from '../components/Errors';
 
 
