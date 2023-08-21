@@ -1,5 +1,5 @@
 # Question Answering App 
-this app answer a question given a context 
+This application is designed to provide answers based on a given context. Occasionally, the model may require some additional processing time. In case you encounter an error, I recommend you to try again and make multiple attempts to achieve your desired outcome.
 
 -------------------------------------------
 
@@ -21,3 +21,5 @@ npm install
 npm run dev
 ``` 
 - open the browser and enjoy 
+
+You can also try the app at the following [Link](https://qa-web-vw5f5rnaj-maryfili.vercel.app/)

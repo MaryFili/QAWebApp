@@ -40,7 +40,7 @@ export default function Home() {
 
 
     const result = await response.json();
-    console.log(result.answer);
+    // console.log(result.answer);
     setAnswer(result.answer);
     setIsError(false);
     setTextError(false);
