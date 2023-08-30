@@ -2,7 +2,51 @@ import "../styles/Form.scss";
 import Button from "./Button";
 import { motion } from "framer-motion";
 
-export default function Form({ passage, setPassage, question, setQuestion, getAnswer }) {
+
+
+const apiKey = import.meta.env.VITE_API_KEY
+const url = import.meta.env.VITE_URL
+export default function Form({ passage, setPassage, question, setQuestion, setIsError, setIsLoading, setAnswer, setTextError }) {
+
+    const getAnswer = async (event) => {
+        try {
+            event.preventDefault();
+            setIsLoading(true);
+
+            const response = await fetch(
+                url,
+                {
+                    headers: { Authorization: `Bearer ${apiKey}` },
+                    method: "POST",
+                    body: JSON.stringify({ 'question': question, 'context': passage }),
+                }
+            );
+
+            const result = await response.json();
+            // console.log(result.answer);
+            setAnswer(result.answer);
+            setIsError(false);
+            setTextError(false);
+            setIsLoading(false);
+
+            if (question === "" || passage === "") {
+                setTextError(true);
+                return;
+            }
+
+            if (!result.answer) {
+                setIsError(true);
+                return;
+            }
+        } catch (error) {
+            console.error(error);
+            setIsError(true);
+            setIsLoading(false);
+        }
+    };
+
+
+
     return (
         <motion.form
             initial={{ opacity: 0, scale: 0.5 }}

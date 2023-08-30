@@ -8,8 +8,8 @@ import Loader from '../components/Loader';
 import Errors from '../components/Errors';
 
 
-const apiKey = import.meta.env.VITE_API_KEY
-const url = import.meta.env.VITE_URL
+// const apiKey = import.meta.env.VITE_API_KEY
+// const url = import.meta.env.VITE_URL
 
 export default function Home() {
 
@@ -22,47 +22,13 @@ export default function Home() {
   const [textError, setTextError] = useState(false);
 
 
-
-
-  const getAnswer = async (event) => {
-    event.preventDefault();
-    setIsLoading(true);
-
-    const response = await fetch(
-      url,
-      {
-        headers: { Authorization: `Bearer ${apiKey}` },
-        method: "POST",
-        body: JSON.stringify({ 'question': question, 'context': passage }),
-      }
-    );
-
-
-    const result = await response.json();
-    // console.log(result.answer);
-    setAnswer(result.answer);
-    setIsError(false);
-    setTextError(false);
-    setIsLoading(false);
-
-    if (question === "" || passage === "") {
-      setTextError(true);
-      return;
-    }
-
-    if (!result.answer) {
-      setIsError(true);
-      return
-    }
-  };
-
   return (
     <>
       <Navbar />
       <div className='home'>
         <Heading />
 
-        <Form question={question} passage={passage} setQuestion={setQuestion} setPassage={setPassage} getAnswer={getAnswer} />
+        <Form question={question} passage={passage} setQuestion={setQuestion} setPassage={setPassage} setAnswer={setAnswer} setIsError={setIsError} setTextError={setTextError} setIsLoading={setIsLoading} />
 
         {isLoading && <Loader />}
 
